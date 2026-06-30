@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ücretsiz Fiyat Hesapla | Claro Temizlik</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Hesaplayıcı Özel Tasarım Alanı */
+.calc-page-wrapper {
+    padding: 140px 0 80px 0;
+    background-color: #EAF9FF; /* Açık mavi arka plan */
+    min-height: 100vh;
+}
+
+.calc-container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.calc-header {
+    background: linear-gradient(135deg, #0A2540 0%, #001224 100%);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.calc-header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.calc-header p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.calc-content {
+    padding: 30px 25px;
+}
+
+.calc-content label {
+    display: block;
+    font-weight: 600;
+    color: #0A2540;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.calc-content select, .calc-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #E2E8F0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+.calc-content select:focus, .calc-content input:focus {
+    outline: none;
+    border-color: #00D2FF;
+    box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.15);
+}
+
+.btn-calculate {
+    padding: 14px;
+    width: 100%;
+    background: #0A2540;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+.btn-calculate:hover {
+    background: #00D2FF;
+    color: #0A2540;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+}
+
+.box {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    border: 2px solid #EAF9FF;
+    border-radius: 10px;
+    background: #F8FAFC;
+    animation: slideIn 0.3s ease;
+}
+
+.box.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.box h3 {
+    color: #0A2540;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #00D2FF;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.why-claro-box {
+    background: #F0FDF4;
+    border-left: 4px solid #16A34A;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #166534;
+}
+
+.why-claro-box strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #14532D;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-left: 4px solid #00D2FF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    display: none;
+}
+
+.result.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.result-price {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0A2540;
+}
+
+.result-label {
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 5px;
+}
+
+.result-details {
+    font-size: 13px;
+    color: #475569;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #E2E8F0;
+    line-height: 1.6;
+}
+
+.info-box {
+    background: #EFF6FF;
+    border-left: 4px solid #3B82F6;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1D4ED8;
+    margin-bottom: 20px;
+}
+
+.section-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.extras-line {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0 15px 0;
+}
+
+.extras-line label {
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #334155;
+    font-size: 13px;
+    cursor: pointer;
+    background: white;
+    padding: 6px 12px;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+}
+
+.extras-line input[type="checkbox"] {
+    width: auto;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .section-group { grid-template-columns: 1fr; }
+    .calc-page-wrapper { padding: 100px 0 40px 0; }
+}
+
+.whatsapp-button {
+    background: #25D366 !important;
+    color: white;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    background: #20ba5a !important;
+}
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-wrapper">
+            <div class="logo-area">
+                <img src="logo.png" alt="Claro Temizlik Logo" class="site-logo">
+                <span class="logo-text">Claro <span>TEMİZLİK</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#anasayfa">Ana Sayfa</a></li>
+                <li><a href="index.html#hizmetlerimiz">Hizmetlerimiz</a></li>
+                <li><a href="index.html#hakkimizda">Hakkımızda</a></li>
+                <li><a href="index.html#sss">S.S.S.</a></li>
+                <li><a href="index.html#iletisim">Bize Ulaşın</a></li>
+            </ul>
+            <a href="fiyat-hesapla.html" class="btn-calc">ÜCRETSİZ FİYAT HESAPLA</a>
+        </div>
+    </nav>
+
+    <div class="calc-page-wrapper">
+        <div class="calc-container">
+            <div class="calc-header">
+                <h1>🧹 Temizlik Fiyat Hesaplayıcı</h1>
+                <p>Hızlı, şeffaf ve doğru fiyat tahmini</p>
+            </div>
+
+            <div class="calc-content">
+                <label>Hizmet Türü Seçin</label>
+                <select id="service" onchange="showBox()">
+                    <option value="">-- Seçiniz --</option>
+                    <option value="home">Ev Temizliği</option>
+                    <option value="building">Apartman Temizliği</option>
+                    <option value="office">Ofis Temizliği</option>
+                    <option value="renovation">İnşaat Sonrası Temizlik</option>
+                </select>
+
+                <div class="box" id="homeBox">
+                    <h3>🏠 Ev Temizliği</h3>
+                    <div class="info-box">💡 Ev büyüklüğünü seçin ve ek hizmetleri ekleyin.</div>
+
+                    <label>Ev Büyüklüğü</label>
+                    <select id="homeType">
+                        <option value="3500">1+0 / 1+1 (Stüdyo)</option>
+                        <option value="4000">2+1</option>
+                        <option value="4800">3+1</option>
+                        <option value="6000">4+1 (Villa)</option>
+                        <option value="7500">5+1 (Villa)</option>
+                        <option value="9000">5+1+ (Büyük Villa)</option>
+                    </select>
+
+                    <label>Ek Hizmetler</label>
+                    <div class="extras-line" aria-label="Ek Hizmetler">
+                        <label><input type="checkbox" id="extraBathroom"> Ek Banyo (+500 TL)</label>
+                        <label><input type="checkbox" id="extraRoom"> Ek Oda (+400 TL)</label>
+                        <label><input type="checkbox" id="extraLiving"> Ek Salon (+750 TL)</label>
+                        <label><input type="checkbox" id="extraCam"> Cam Temizliği (+400 TL)</label>
+                        <label><input type="checkbox" id="extraAppliance"> Fırın / Beyaz Eşya (+300 TL)</label>
+                        <label><input type="checkbox" id="extraBalcony"> Balkon Temizliği (+150 TL)</label>
+                    </div>
+
+                    <label>Temizlik Sıklığı</label>
+                    <select id="homeFreq">
+                        <option value="1">Tek Seferlik</option>
+                        <option value="0.9">Aylık (Aylık 4 seferde %10 indirim)</option>
+                        <option value="0.8">Haftalık (Haftalık seferde %20 indirim)</option>
+                    </select>
+
+                    <button class="btn-calculate" onclick="calcHome()">Fiyatı Hesapla</button>
+                    
+                    <div class="result" id="homeResult"></div>
+                    <button class="whatsapp-button" onclick="sendWhatsApp('home')"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Teklif Al</button>
+                    
+                    <div class="why-claro-box">
+                        <strong>✅ Neden Claro Temizlik?</strong>
+                        👨‍🔧 Deneyimli ve profesyonel ekip<br>
+                        🧼 Kaliteli ekipman ve profesyonel temizlik ürünleri<br>
+                        📅 Randevulu ve planlı hizmet
+                    </div>
+                </div>
+
+                <div class="box" id="buildingBox">
+                    <h3>🏢 Apartman Temizliği</h3>
+                    <div class="info-box">💡 Ortak alanların temizliğini hesaplayın.</div>
+
+                    <label>Kat Sayısı</label>
+                    <input type="number" id="floor" placeholder="Kaç kat?" min="1" value="5">
+
+                    <label>Asansör Durumu</label>
+                    <select id="elevator">
+                        <option value="0">Asansör Yok</option>
+                        <option value="200">Asansör Var (+200 TL)</option>
+                    </select>
+
+                    <label>Temizlik Sıklığı</label>
+                    <select id="freq">
+                        <option value="1">Ayda 1</option>
+                        <option value="1.85">Ayda 2</option>
+                        <option value="3.5">Haftada 1</option>
+                        <option value="4.3">Haftada 1.5 (günlük temizlik)</option>
+                    </select>
+
+                    <button class="btn-calculate" onclick="calcBuilding()">Fiyatı Hesapla</button>
+                    
+                    <div class="result" id="buildingResult"></div>
+                    <button class="whatsapp-button" onclick="sendWhatsApp('building')"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Teklif Al</button>
+
+                    <div class="why-claro-box">
+                        <strong>✅ Neden Claro Temizlik?</strong>
+                        👨‍🔧 Deneyimli ve profesyonel ekip<br>
+                        🧼 Kaliteli ekipman ve profesyonel temizlik ürünleri<br>
+                        📅 Randevulu ve planlı hizmet
+                    </div>
+                </div>
+
+                <div class="box" id="officeBox">
+                    <h3>💼 Ofis Temizliği</h3>
+                    <div class="info-box">💡 Ofis alanı ve yoğunluğu girin.</div>
+
+                    <label>Ofis Alanı (m²)</label>
+                    <input type="number" id="m2" placeholder="Kaç metrekare?" min="1" value="100">
+
+                    <label>Ofis Yoğunluğu</label>
+                    <select id="density">
+                        <option value="42">Az Yoğun (30+ kişi için geniş ofis)</option>
+                        <option value="35">Orta Yoğun (15-30 kişi)</option>
+                        <option value="30">Çok Yoğun (5-15 kişi)</option>
+                    </select>
+
+                    <label>Temizlik Sıklığı</label>
+                    <select id="officeFreq">
+                        <option value="1">Haftada 1</option>
+                        <option value="2">Haftada 2</option>
+                        <option value="4.3">Günlük (Pazartesi-Cuma)</option>
+                    </select>
+
+                    <button class="btn-calculate" onclick="calcOffice()">Fiyatı Hesapla</button>
+                    
+                    <div class="result" id="officeResult"></div>
+                    <button class="whatsapp-button" onclick="sendWhatsApp('office')"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Teklif Al</button>
+
+                    <div class="why-claro-box">
+                        <strong>✅ Neden Claro Temizlik?</strong>
+                        👨‍🔧 Deneyimli ve profesyonel ekip<br>
+                        🧼 Kaliteli ekipman ve profesyonel temizlik ürünleri<br>
+                        📅 Randevulu ve planlı hizmet
+                    </div>
+                </div>
+
+                <div class="box" id="renoBox">
+                    <h3>🏗️ İnşaat Sonrası Temizlik</h3>
+                    <div class="info-box">💡 İnşaat atığı ve toz temizliği için hesaplama yapın.</div>
+
+                    <label>Alan (m²)</label>
+                    <input type="number" id="rm2" placeholder="Kaç metrekare?" min="1" value="100">
+
+                    <label>Temizlik Zorluk Seviyesi</label>
+                    <select id="level">
+                        <option value="85">Standart (Çoğu inşaat)</option>
+                        <option value="115">Orta (Ağır kirliliğe sahip)</option>
+                        <option value="150">Ağır (Ekskavatör vb. ile iş)</option>
+                    </select>
+
+                    <label>Ek Hizmetler</label>
+                    <div class="section-group">
+                        <div>
+                            <select id="glass">
+                                <option value="0">Cam Film Yok</option>
+                                <option value="500">Cam Film Var (+500 TL)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select id="grout">
+                                <option value="0">Derz Yok</option>
+                                <option value="400">Derz Temizliği (+400 TL)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-group">
+                        <div>
+                            <select id="kitchen">
+                                <option value="0">Mutfak Yok</option>
+                                <option value="300">Mutfak Detay (+300 TL)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select id="window">
+                                <option value="0">Pencere Temizliği Yok</option>
+                                <option value="250">Pencere Temizliği (+250 TL)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-calculate" onclick="calcReno()">Fiyatı Hesapla</button>
+                    
+                    <div class="result" id="renoResult"></div>
+                    <button class="whatsapp-button" onclick="sendWhatsApp('renovation')"><i class="fa-brands fa-whatsapp"></i> WhatsApp'tan Teklif Al</button>
+
+                    <div class="why-claro-box">
+                        <strong>✅ Neden Claro Temizlik?</strong>
+                        👨‍🔧 Deneyimli ve profesyonel ekip<br>
+                        🧼 Kaliteli ekipman ve profesyonel temizlik ürünleri<br>
+                        📅 Randevulu ve planlı hizmet
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer" style="background: #F8FAFC; padding: 15px 20px; text-align: center; font-size: 12px; color: #64748B; border-top: 1px solid #E2E8F0;">
+                <p>© 2026 Claro Temizlik | Tüm fiyatlar TL cinsinden hesaplanmaktadır.</p>
+            </div>
+        </div>
+    </div>
+
+<script>
+function showBox() {
+    let v = document.getElementById("service").value;
+    document.querySelectorAll(".box").forEach(function(b) {
+        b.classList.remove("active");
+    });
+    
+    if (v === "home") {
+        document.getElementById("homeBox").classList.add("active");
+    } else if (v === "building") {
+        document.getElementById("buildingBox").classList.add("active");
+    } else if (v === "office") {
+        document.getElementById("officeBox").classList.add("active");
+    } else if (v === "renovation") {
+        document.getElementById("renoBox").classList.add("active");
+    }
+}
+
+function showResult(elementId, price, details) {
+    if (details === undefined) details = "";
+    const resultDiv = document.getElementById(elementId);
+    resultDiv.innerHTML = '<div class="result-label">Hesaplanan Tahmini Fiyat:</div>' +
+                          '<div class="result-price">' + formatPrice(price) + ' TL</div>' +
+                          (details ? '<div class="result-details">' + details + '</div>' : '');
+    resultDiv.classList.add("show");
+}
+
+function formatPrice(price) {
+    const n = Number(price) || 0;
+    return Math.round(n).toLocaleString("tr-TR");
+}
+
+function sendWhatsApp(serviceType) {
+    let price = "";
+    let message = "";
+
+    if (serviceType === "home") {
+        const homeType = document.getElementById("homeType");
+        const homeTypeLabel = homeType.options[homeType.selectedIndex].text;
+        const homeFreq = document.getElementById("homeFreq");
+        const homeFreqLabel = homeFreq.options[homeFreq.selectedIndex].text;
+        const resultDiv = document.getElementById("homeResult");
+        const priceElement = resultDiv.querySelector(".result-price");
+        
+        if (priceElement) {
+            price = priceElement.textContent;
+            message = "Merhaba! 🏠 Ev Temizliği hizmeti için teklif almak istiyorum:\n\n- Ev Tipi: " + homeTypeLabel + "\n- Sıklık: " + homeFreqLabel + "\n- Tahmini Fiyat: " + price + "\n\nDetayları konuşmak isterim. Teşekkürler.";
+        }
+    } else if (serviceType === "building") {
+        const floor = document.getElementById("floor").value;
+        const elevator = document.getElementById("elevator");
+        const elevatorLabel = elevator.options[elevator.selectedIndex].text;
+        const resultDiv = document.getElementById("buildingResult");
+        const priceElement = resultDiv.querySelector(".result-price");
+        
+        if (priceElement) {
+            price = priceElement.textContent;
+            message = "Merhaba! 🏢 Apartman Temizliği hizmeti için teklif almak istiyorum:\n\n- Kat Sayısı: " + floor + "\n- Asansör: " + elevatorLabel + "\n- Tahmini Aylık Fiyat: " + price + "\n\nDetaylar için yazabilirsiniz.";
+        }
+    } else if (serviceType === "office") {
+        const m2 = document.getElementById("m2").value;
+        const density = document.getElementById("density");
+        const densityLabel = density.options[density.selectedIndex].text;
+        const resultDiv = document.getElementById("officeResult");
+        const priceElement = resultDiv.querySelector(".result-price");
+        
+        if (priceElement) {
+            price = priceElement.textContent;
+            message = "Merhaba! 💼 Ofis Temizliği hizmeti için teklif almak istiyorum:\n\n- Alan: " + m2 + " m²\n- Yoğunluk: " + densityLabel + "\n- Tahmini Aylık Fiyat: " + price + "\n\nDetayları konuşalım.";
+        }
+    } else if (serviceType === "renovation") {
+        const rm2 = document.getElementById("rm2").value;
+        const level = document.getElementById("level");
+        const levelLabel = level.options[level.selectedIndex].text;
+        const resultDiv = document.getElementById("renoResult");
+        const priceElement = resultDiv.querySelector(".result-price");
+        
+        if (priceElement) {
+            price = priceElement.textContent;
+            message = "Merhaba! 🏗️ İnşaat Sonrası Temizlik hizmeti için teklif almak istiyorum:\n\n- Alan: " + rm2 + " m²\n- Zorluk Seviyesi: " + levelLabel + "\n- Tahmini Fiyat: " + price + "\n\nİletişime geçebilir misiniz?";
+        }
+    }
+
+    if (message) {
+        const phoneNumber = "905352866434";
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = "https://wa.me/" + phoneNumber + "?text=" + encodedMessage;
+        window.open(whatsappUrl, "_blank");
+    } else {
+        alert("Lütfen önce fiyat hesaplamasını yapınız!");
+    }
+}
+
+function calcHome() {
+    const base = parseFloat(document.getElementById("homeType").value) || 0;
+    const extraBathroom = document.getElementById("extraBathroom").checked ? 500 : 0;
+    const extraRoom = document.getElementById("extraRoom").checked ? 400 : 0;
+    const extraLiving = document.getElementById("extraLiving").checked ? 750 : 0;
+    const extraCam = document.getElementById("extraCam").checked ? 400 : 0;
+    const extraAppliance = document.getElementById("extraAppliance").checked ? 300 : 0;
+    const extraBalcony = document.getElementById("extraBalcony").checked ? 150 : 0;
+
+    const extrasTotal = extraBathroom + extraRoom + extraLiving + extraCam + extraAppliance + extraBalcony;
+    const freqVal = document.getElementById("homeFreq").value;
+    let total = 0;
+    let details = '';
+
+    if (freqVal === "1") {
+        total = base + extrasTotal;
+        details = "<strong>Detaylar:</strong><br>Taban Fiyat (Tek Seferlik): " + formatPrice(base) + " TL<br>" + (extrasTotal > 0 ? "Ek Hizmetler: " + formatPrice(extrasTotal) + " TL<br>" + getSelectedExtrasList() : '');
+    } else if (freqVal === "0.9") {
+        const visits = 4;
+        const discountFactor = 0.9;
+        const single = base + extrasTotal;
+        total = single * visits * discountFactor;
+        const discountAmount = Math.round(single * visits - total);
+        details = "<strong>Detaylar:</strong><br>Taban Fiyat (Bir Sefer): " + formatPrice(base) + " TL<br>" + (extrasTotal > 0 ? "Ek Hizmetler (Bir Sefer): " + formatPrice(extrasTotal) + " TL<br>" + getSelectedExtrasList() : '') + "Toplam Ziyaret: " + visits + " Sefer<br>İndirim Tutarı (%10): " + formatPrice(discountAmount) + " TL<br>";
+    } else if (freqVal === "0.8") {
+        const weeksPerMonth = 4.3;
+        const discountFactor = 0.8;
+        const single = base + extrasTotal;
+        const subtotal = single * weeksPerMonth;
+        total = subtotal * discountFactor;
+        const discountAmount = Math.round(subtotal - total);
+        details = "<strong>Detaylar:</strong><br>Taban Fiyat (Bir Sefer): " + formatPrice(base) + " TL<br>" + (extrasTotal > 0 ? "Ek Hizmetler (Bir Sefer): " + formatPrice(extrasTotal) + " TL<br>" + getSelectedExtrasList() : '') + "Haftalık Ziyaret (Aylık): " + weeksPerMonth + " Sefer<br>İndirim Tutarı (%20): " + formatPrice(discountAmount) + " TL<br>";
+    }
+
+    showResult("homeResult", total, details);
+}
+
+function getSelectedExtrasList() {
+    const items = [];
+    if (document.getElementById("extraBathroom").checked) items.push("• Ek Banyo: " + formatPrice(500) + " TL");
+    if (document.getElementById("extraRoom").checked) items.push("• Ek Oda: " + formatPrice(400) + " TL");
+    if (document.getElementById("extraLiving").checked) items.push("• Ek Salon: " + formatPrice(750) + " TL");
+    if (document.getElementById("extraCam").checked) items.push("• Cam Temizliği: " + formatPrice(400) + " TL");
+    if (document.getElementById("extraAppliance").checked) items.push("• Fırın / Beyaz Eşya: " + formatPrice(300) + " TL");
+    if (document.getElementById("extraBalcony").checked) items.push("• Balkon Temizliği: " + formatPrice(150) + " TL");
+    return items.length > 0 ? items.join('<br>') + '<br>' : '';
+}
+
+function calcBuilding() {
+    const floor = parseInt(document.getElementById("floor").value) || 0;
+    const elevator = parseInt(document.getElementById("elevator").value) || 0;
+    const freqSelect = document.getElementById("freq");
+    const freqIndex = freqSelect.selectedIndex;
+
+    if (floor <= 0) {
+        alert("Lütfen geçerli bir kat sayısı girin!");
+        return;
+    }
+
+    const base = 1000 + (floor * 175) + elevator;
+    const weeksPerMonth = 4.3;
+    const visitsPerMonthMap = [1, 2, weeksPerMonth, weeksPerMonth * 1.5];
+    const visitsPerMonth = visitsPerMonthMap[freqIndex] || 1;
+    const monthlyTotal = base * visitsPerMonth;
+
+    const details = "<strong>Detaylar:</strong><br>Taban Fiyat (Bir Sefer): " + formatPrice(base) + " TL<br>Kat Ücreti (" + floor + " × 175 TL): " + formatPrice(floor * 175) + " TL<br>Asansör Farkı: " + (elevator ? formatPrice(elevator) + " TL" : "Yok") + "<br>Aylık Sefer Sayısı: " + visitsPerMonth + " sefer<br>";
+
+    showResult("buildingResult", monthlyTotal, details);
+}
+
+function calcOffice() {
+    const m2 = parseInt(document.getElementById("m2").value) || 0;
+    const rate = parseFloat(document.getElementById("density").value) || 0;
+    const freqSelect = document.getElementById("officeFreq");
+    const freqIndex = freqSelect.selectedIndex;
+
+    if (m2 <= 0) {
+        alert("Lütfen geçerli bir alan girin!");
+        return;
+    }
+
+    const perVisit = m2 * rate;
+    const visitsPerWeekMap = [1, 2, 5];
+    const visitsPerWeek = visitsPerWeekMap[freqIndex] || 1;
+    const weeklyCost = perVisit * visitsPerWeek;
+    const monthlyCost = weeklyCost * 4.3;
+
+    const details = "<strong>Detaylar:</strong><br>Alan: " + m2 + " m²<br>Birim Metrekare Fiyatı: " + formatPrice(rate) + " TL/m²<br>Ziyaret Başı Maliyet: " + formatPrice(perVisit) + " TL<br>Haftalık Sefer: " + visitsPerWeek + "<br>Yaklaşık Aylık Toplam: " + formatPrice(monthlyCost) + " TL<br>";
+
+    showResult("officeResult", monthlyCost, details);
+}
+
+function calcReno() {
+    let m2 = parseInt(document.getElementById("rm2").value) || 0;
+    let rate = parseInt(document.getElementById("level").value);
+    let glass = parseInt(document.getElementById("glass").value);
+    let grout = parseInt(document.getElementById("grout").value);
+    let kitchen = parseInt(document.getElementById("kitchen").value);
+    let window = parseInt(document.getElementById("window").value);
+    
+    if (m2 <= 0) {
+        alert("Lütfen geçerli bir alan girin!");
+        return;
+    }
+    
+    let basePrice = m2 * rate;
+    let total = basePrice + glass + grout + kitchen + window;
+    
+    let extras = [];
+    if (glass > 0) extras.push("• Cam Film Farkı: " + formatPrice(glass) + " TL");
+    if (grout > 0) extras.push("• Derz Temizliği: " + formatPrice(grout) + " TL");
+    if (kitchen > 0) extras.push("• Mutfak Detay Temizliği: " + formatPrice(kitchen) + " TL");
+    if (window > 0) extras.push("• Pencere Temizliği: " + formatPrice(window) + " TL");
+    
+    let details = "<strong>Detaylar:</strong><br>Taban Fiyat (" + m2 + "m² × " + formatPrice(rate) + " TL): " + formatPrice(basePrice) + " TL<br>" + (extras.length > 0 ? extras.join("<br>") + "<br>" : '') + "Toplam Maliyet: " + formatPrice(total) + " TL<br>";
+    
+    showResult("renoResult", total, details);
+}
+</script>
+
+</body>
+</html>
