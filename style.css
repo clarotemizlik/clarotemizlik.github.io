@@ -638,3 +638,65 @@ body {
 .hero-section {
     padding-top: 80px; /* Menünün yüksekliği kadar üstten boşluk bırakarak yazıları aşağı iter */
 }
+/* ==========================================================================
+   CLARO TEMİZLİK - BTN-MAIN VE BTN-WP BUTON TASARIMLARI
+   ========================================================================== */
+
+/* Butonların Ortak Alan Özellikleri */
+.hero-btns .btn-main, 
+.hero-btns .btn-wp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* İkon ile yazı arasındaki boşluk */
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px; /* İstediğimiz o hafif yuvarlak modern kenarlar */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Renk geçişinin yumuşak olması için */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Altlarına çok hafif derinlik gölgesi */
+}
+
+/* 1. ANA BUTON: Fiyat Hesapla (Kurumsal Mavi) */
+.hero-btns .btn-main {
+    background-color: #0b457f; /* Logonuzun kurumsal koyu mavisi */
+    color: #ffffff !important;
+    border: 2px solid #0b457f;
+}
+
+/* Fiyat Hesapla Butonunun Üzerine Gelindiğinde (Hover Efekti) */
+.hero-btns .btn-main:hover {
+    background-color: #17a2b8; /* Canlı temizlik/su tonu mavisi */
+    border-color: #17a2b8;
+    transform: translateY(-2px); /* Hafif yukarı zıplama efekti ile etkileşim hissi */
+    box-shadow: 0 6px 20px rgba(23, 162, 184, 0.25);
+}
+
+/* 2. DESTEKLEYİCİ BUTON: WhatsApp'tan Yazın (Modern ve Dengeli Yeşil) */
+.hero-btns .btn-wp {
+    background-color: transparent; /* İçini boş bırakarak ana butonla yarışmasını engelledik */
+    color: #25d366 !important; /* Orijinal WhatsApp yeşili yazı rengi */
+    border: 2px solid #25d366; /* Yeşil çerçeve */
+}
+
+/* WhatsApp Butonunun Üzerine Gelindiğinde (Hover Efekti) */
+.hero-btns .btn-wp:hover {
+    background-color: #25d366; /* Üzerine gelince içi orijinal WhatsApp yeşili ile dolar */
+    color: #ffffff !important; /* Yazı beyaza döner */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+}
+
+/* Butonların Mobil Cihazlarda Yan Yana Sıkışmasını Engelleme */
+@media (max-width: 480px) {
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-btns .btn-main, 
+    .hero-btns .btn-wp {
+        width: 100%; /* Mobilde butonlar alt alta tam genişlikte açılır, basması kolaylaşır */
+    }
+}
