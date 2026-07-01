@@ -700,3 +700,50 @@ body {
         width: 100%; /* Mobilde butonlar alt alta tam genişlikte açılır, basması kolaylaşır */
     }
 }
+    /* ==========================================================================
+   CLARO TEMİZLİK - TİPOGRAFİ, OKUNABİLİRLİK VE KONTRAST AYARLARI
+   ========================================================================== */
+
+/* Hero alanının arka planını gradyan katmanıyla güçlendirdik */
+.hero-section {
+    /* Sol taraftan sağa doğru yumuşak ve neredeyse şeffaf bir gölge katmanı ekledik, böylece sol üstteki beyaz alanlarda yazılar kaybolmaz */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.85) 30%, rgba(255, 255, 255, 0.2) 60%, rgba(255, 255, 255, 0) 100%), 
+                url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Başlık 2: Profesyonel Temizlikte Güvenilir Çözüm Ortağınız */
+.hero-text h2 {
+    font-size: 2.6rem;
+    color: #0b457f !important; /* Kurumsal koyu mavi */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    /* Beyaz koltuk önünde jilet gibi okunması için çok hafif yazı gölgesi */
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8); 
+}
+
+/* Başlık 3: Mis gibi ev, iç rahatlığı */
+.hero-text h3 {
+    font-size: 1.6rem;
+    color: #17a2b8 !important; /* Canlı temizlik/su tonu */
+    font-weight: 600;
+    margin-bottom: 18px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Açıklama Paragrafı (<p> etiketi) */
+.hero-text p {
+    font-size: 1.1rem;
+    color: #333333 !important; /* Tam siyah yerine gözü yormayan kurumsal füme/koyu gri */
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 500; /* Yazıyı bir tık kalınlaştırarak okunabilirliği zirveye taşıdık */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
