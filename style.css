@@ -158,28 +158,40 @@ body {
 }
 
 /* ==========================================================================
-   CLARO TEMİZLİK - WHATSAPP BUTONU YENİ İŞLEYİŞ (İÇİ DOLUDAN ŞEFFAFA)
+  /* ==========================================================================
+   CLARO TEMİZLİK - WHATSAPP BUTONU VE GÖRSEL OPTİMİZASYONU (DÜZELTİLMİŞ)
    ========================================================================== */
 
-/* 1. VARSAYILAN DURUM: Butonun içi ilk açılışta tamamen WhatsApp Yeşili doludur */
+/* 1. VARSAYILAN DURUM: Butonun içi tamamen doludur, yazı ve ikon bembeyaz parlar */
 .hero-btns .btn-wp {
     background-color: #25d366 !important; /* Orijinal WhatsApp yeşili zemin */
-    color: #ffffff !important; /* Yazı ve ikon ilk başta bembeyaz, jilet gibi net */
-    border: 2px solid #25d366; /* Yeşil çerçeve */
+    border: 2px solid #25d366 !important; /* Yeşil çerçeve */
+    transition: all 0.3s ease; /* Tüm geçişlerin yumuşak olması için */
+}
+
+/* İkon ve yazının kesinlikle beyaz kalmasını sağlayan emniyet kodu */
+.hero-btns .btn-wp,
+.hero-btns .btn-wp i,
+.hero-btns .btn-wp span {
+    color: #ffffff !important; 
+    font-weight: 600;
 }
 
 /* 2. ETKİLEŞİM DURUMU: Fare ile üzerine gelindiğinde (Hover) şeffaflaşır */
 .hero-btns .btn-wp:hover {
     background-color: transparent !important; /* İçindeki yeşil dolgu tamamen kalkar, şeffaf olur */
-    color: #25d366 !important; /* Yazı ve ikon rengi yeşile dönerek çerçeveyle bütünleşir */
-    transform: translateY(-2px); /* Tasarımcı dokunuşu: Hafif yukarı yaylanma efekti */
+    transform: translateY(-2px); /* Hafif yukarı yaylanma efekti */
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3); /* Dışa doğru tatlı bir yeşil ışıma gölgesi */
 }
 
-.btn-wp:hover {
-    transform: translateY(-2px);
+/* Üzerine gelindiğinde butonun içindeki yazı ve ikonun yeşile dönmesi */
+.hero-btns .btn-wp:hover,
+.hero-btns .btn-wp:hover i,
+.hero-btns .btn-wp:hover span {
+    color: #25d366 !important; /* Çerçevenin yeşili ile jilet gibi bütünleşir */
 }
 
+/* 3. HERO GÖRSEL AYARLARI */
 .hero-image img {
     width: 100%;
     border-radius: var(--radius);
