@@ -905,3 +905,54 @@ body {
     .hero-text h3 { font-size: 1.3rem !important; }
     .hero-text p { font-size: 0.95rem !important; color: #e2e8f0 !important; }
 }
+/* ==========================================================================
+   CLARO TEMİZLİK - HEADER (MENÜ) OPTİMİZASYONU VE BUTONLAŞTIRMA
+   ========================================================================== */
+
+/* Menü barının genel esnek yerleşimi (Logo gidince) */
+.claro-navbar {
+    display: flex;
+    justify-content: space-between; /* Linkleri sola, butonu sağa yaslar */
+    align-items: center;
+    padding: 15px 40px;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Sol taraftaki düz linklerin aralarındaki boşluklar */
+.nav-links a {
+    margin-right: 20px;
+    color: #0b457f !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* 🎯 SAĞ ÜSTTEKİ YAZIYI PREMİUM BUTONA DÖNÜŞTÜREN KOD */
+.nav-btn-main {
+    background-color: #17a2b8 !important; /* Canlı temizlik/su tonu turkuazı - koyu renkten kurtardık! */
+    color: #ffffff !important; /* Yazıyı bembeyaz yaparak okunabilirliği %100 yaptık */
+    padding: 10px 20px;
+    border-radius: 6px; /* Hafif yuvarlak modern köşeler */
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(23, 162, 184, 0.2);
+    display: inline-block;
+}
+
+/* Sağ üstteki butona mouse ile gelindiğinde (Hover) */
+.nav-btn-main:hover {
+    background-color: #0b457f !important; /* Üzerine gelince kurumsal koyu maviye döner */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(11, 69, 127, 0.25);
+}
+
+/* Mobil Ekranlarda Menünün Patlamaması İçin */
+@media (max-width: 768px) {
+    .claro-navbar {
+        padding: 15px 20px;
+    }
+    .nav-btn-main {
+        padding: 8px 14px;
+        font-size: 0.85rem; /* Mobilde ekrana sığması için hafif küçülttük */
+    }
+}
