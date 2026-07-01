@@ -751,3 +751,74 @@ body {
     font-weight: 500; /* Yazıyı bir tık kalınlaştırarak okunabilirliği zirveye taşıdık */
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
+/* ==========================================================================
+   CLARO TEMİZLİK - %100 MOBİL UYUMLULUK (RESPONSIVE) OPTİMİZASYONU
+   ========================================================================== */
+
+/* Tablet ve Akıllı Telefon Ekranları İçin Ortak Ayarlar (768px ve altı) */
+@media (max-width: 768px) {
+    .hero-section {
+        /* Görseli %45 oranında sağa kaydırarak personelin yüzünün yazının arkasında kalmasını engelledik */
+        background-position: 45% center !important; 
+        min-height: 90vh; /* Mobilde tarayıcı barları alanı daralttığı için yüksekliği hafifçe esnettik */
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-text {
+        max-width: 100%; /* Yazı alanının tüm genişliği kaplamasına izin verdik */
+        margin: 15px;
+        padding: 25px 20px !important;
+        /* Arkadaki görselden dolayı harfler karışmasın diye şık bir buzlu cam efekti (backdrop-filter) ekledik */
+        background: rgba(255, 255, 255, 0.88) !important;
+        backdrop-filter: blur(5px); /* Arkadaki koltuk ve bitkiyi hafifçe blurlayarak yazıyı öne çıkarır */
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Mobilde Kurumsal Logonun Boyutu */
+    .hero-logo {
+        max-width: 140px !important;
+        margin-bottom: 15px;
+        margin-left: 0; /* Sol hizalı durması için */
+    }
+
+    /* Mobilde Başlık Boyutlarını Küçülterek Dengeliyoruz */
+    .hero-text h2 {
+        font-size: 1.8rem !important; /* Büyük harflerin ekrandan taşmasını engelledik */
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+
+    .hero-text h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 12px;
+    }
+
+    .hero-text p {
+        font-size: 0.95rem !important; /* Açıklama metnini okunaklı ama kibar bir boyuta çektik */
+        line-height: 1.5;
+        margin-bottom: 25px;
+    }
+}
+
+/* Küçük Ekranlı Telefonlar İçin Ekstra Buton Ayarı (480px ve altı) */
+@media (max-width: 480px) {
+    .hero-text {
+        margin: 10px;
+        padding: 20px 15px !important;
+    }
+    
+    .hero-btns {
+        display: flex;
+        flex-direction: column; /* Butonları alt alta sıralayarak başparmak erişimini kolaylaştırdık */
+        gap: 12px;
+    }
+
+    .hero-btns .btn-main, 
+    .hero-btns .btn-wp {
+        width: 100% !important; /* Butonlar ekranı tam kaplar, tıklaması çok pratik olur */
+        padding: 12px 20px !important;
+        font-size: 0.95rem !important;
+    }
+}
