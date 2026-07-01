@@ -545,3 +545,61 @@ body {
         display: none; /* Mobilde menüyü sıkıştırmamak için mottoyu gizliyoruz */
     }
 }
+
+/* ==========================================================================
+   CLARO TEMİZLİK - ANA SAYFA (HERO) GÖRSEL VE YAZI AYARLARI
+   ========================================================================== */
+
+/* Arka plana yüklediğimiz temiz görseli oturtan kod */
+.hero-section {
+    background-image: url('hero-bg.jpg'); /* GitHub'a yüklediğiniz görselin adı */
+    background-size: cover;
+    background-position: center right; /* Personel sağda, boşluk solda kalacak */
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ekranı dikeyde tam kaplaması için */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Sol taraftaki yazı alanının genişliği (Personelin üstüne binmesin diye) */
+.hero-text {
+    max-width: 550px; 
+    padding: 40px;
+    z-index: 2;
+}
+
+/* HTML'e sonradan eklediğimiz Claro Logosunun boyutu */
+.hero-logo {
+    max-width: 180px; 
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Başlıkların kurumsal renk ve font ayarları */
+.hero-text h2 {
+    font-size: 2.5rem;
+    color: #0b457f; /* Logodaki kurumsal koyu mavi */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero-text h3 {
+    font-size: 1.5rem;
+    color: #17a2b8; /* Canlı temizlik/su tonu */
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* 📱 MOBİL UYUMLULUK (Telefon Ekranları İçin) */
+@media (max-width: 768px) {
+    .hero-section {
+        background-position: 35% center; /* Telefonda personeli hafif sağa kaydırır */
+    }
+    .hero-text {
+        background: rgba(255, 255, 255, 0.85); /* Arka plan koyu kalırsa yazılar rahat okunsun diye şeffaf beyaz zemin */
+        border-radius: 10px;
+        margin: 20px;
+        padding: 20px;
+    }
