@@ -501,25 +501,47 @@ body {
 .sidebar-box h4 { color: var(--dark-blue); font-size: 1.3rem; margin-bottom: 15px; }
 @media (max-width: 992px) { .service-detail-wrapper { grid-template-columns: 1fr; } }
 
-/* Logo ve Motto Tasarımı */
+/* --- Yenilenen Premium Header Tasarımı --- */
+.site-logo {
+    height: 65px !important; /* Logoyu belirgin şekilde büyüttük */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05); /* Üzerine gelince hafif tatlı bir büyüme efekti */
+}
+
 .logo-area {
     display: flex;
     align-items: center;
     gap: 15px;
+    padding: 5px 0;
+}
+
+/* Eski Claro TEMİZLİK metnini tamamen yok etmek için garanti kural */
+.logo-text {
+    display: none !important;
 }
 
 .motto-text {
-    font-size: 13px;
-    color: #64748B; /* Elegant gri tonu */
+    font-size: 14px; /* Okunabilirliği artırdık */
+    color: #475569; /* Daha tok ve profesyonel bir gri tonu */
     font-weight: 500;
-    line-height: 1.2;
-    border-left: 2px solid #00D2FF; /* Gökyüzü mavisi ayırıcı çizgi */
+    line-height: 1.3;
+    border-left: 2px solid #00D2FF; /* Ayırıcı dikey çizgi */
     padding-left: 15px;
     font-style: italic;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Mobil Cihazlar İçin Optimizasyon */
 @media (max-width: 768px) {
+    .site-logo {
+        height: 50px !important; /* Mobilde taşma yapmaması için ideal boyut */
+    }
     .motto-text {
-        display: none; /* Mobilde ekranı daraltmaması için slogan gizlenir, logo kalır */
+        display: none; /* Mobilde menüyü sıkıştırmamak için mottoyu gizliyoruz */
     }
 }
