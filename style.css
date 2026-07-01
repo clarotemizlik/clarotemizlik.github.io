@@ -157,17 +157,23 @@ body {
     background-color: #00b4db;
 }
 
-.btn-wp {
-    background-color: #25D366;
-    color: var(--white);
-    text-decoration: none;
-    padding: 14px 30px;
-    border-radius: var(--radius);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: transform 0.3s;
+/* ==========================================================================
+   CLARO TEMİZLİK - WHATSAPP BUTONU YENİ İŞLEYİŞ (İÇİ DOLUDAN ŞEFFAFA)
+   ========================================================================== */
+
+/* 1. VARSAYILAN DURUM: Butonun içi ilk açılışta tamamen WhatsApp Yeşili doludur */
+.hero-btns .btn-wp {
+    background-color: #25d366 !important; /* Orijinal WhatsApp yeşili zemin */
+    color: #ffffff !important; /* Yazı ve ikon ilk başta bembeyaz, jilet gibi net */
+    border: 2px solid #25d366; /* Yeşil çerçeve */
+}
+
+/* 2. ETKİLEŞİM DURUMU: Fare ile üzerine gelindiğinde (Hover) şeffaflaşır */
+.hero-btns .btn-wp:hover {
+    background-color: transparent !important; /* İçindeki yeşil dolgu tamamen kalkar, şeffaf olur */
+    color: #25d366 !important; /* Yazı ve ikon rengi yeşile dönerek çerçeveyle bütünleşir */
+    transform: translateY(-2px); /* Tasarımcı dokunuşu: Hafif yukarı yaylanma efekti */
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3); /* Dışa doğru tatlı bir yeşil ışıma gölgesi */
 }
 
 .btn-wp:hover {
