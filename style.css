@@ -999,3 +999,37 @@ body {
         font-size: 1.2rem;
     }
 }
+/* ==========================================================================
+   CLARO TEMİZLİK - WHATSAPP BUTONU YAZI VE İKON ÇÖZÜMÜ (TEK KODLA KESİN ÇÖZÜM)
+   ========================================================================== */
+
+/* 1. VARSAYILAN DURUM: Buton yeşil, İÇİNDEKİ HER ŞEY (Metin, İkon, Yazı) İstisnasız Beyaz */
+.hero-btns .btn-wp,
+.hero-btns a.btn-wp,
+.btn-wp {
+    background-color: #25d366 !important;
+    border: 2px solid #25d366 !important;
+    color: #ffffff !important;
+    text-shadow: none !important; /* Varsa arkadaki gölgeyi siler netleştirir */
+}
+
+/* Butonun içindeki tüm alt elemanları (yazı, span, ikon) beyaza zorlayan kilit kural */
+.hero-btns .btn-wp *,
+.btn-wp * {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* 2. ETKİLEŞİM DURUMU: Fare üstüne gelince buton şeffaf, İÇİNDEKİ HER ŞEY WhatsApp Yeşili */
+.hero-btns .btn-wp:hover,
+.btn-wp:hover {
+    background-color: transparent !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* Üzerine gelindiğinde içindeki tüm alt elemanları yeşile zorlayan kilit kural */
+.hero-btns .btn-wp:hover *,
+.btn-wp:hover * {
+    color: #25d366 !important;
+}
