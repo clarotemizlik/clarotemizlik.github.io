@@ -500,3 +500,26 @@ body {
 .sidebar-box { background-color: var(--light-blue); padding: 30px; border-radius: var(--radius); text-align: center; }
 .sidebar-box h4 { color: var(--dark-blue); font-size: 1.3rem; margin-bottom: 15px; }
 @media (max-width: 992px) { .service-detail-wrapper { grid-template-columns: 1fr; } }
+
+/* Logo ve Motto Tasarımı */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.motto-text {
+    font-size: 13px;
+    color: #64748B; /* Elegant gri tonu */
+    font-weight: 500;
+    line-height: 1.2;
+    border-left: 2px solid #00D2FF; /* Gökyüzü mavisi ayırıcı çizgi */
+    padding-left: 15px;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .motto-text {
+        display: none; /* Mobilde ekranı daraltmaması için slogan gizlenir, logo kalır */
+    }
+}
