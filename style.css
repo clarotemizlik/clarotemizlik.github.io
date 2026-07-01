@@ -603,3 +603,38 @@ body {
         margin: 20px;
         padding: 20px;
     }
+/* ==========================================================================
+   CLARO TEMİZLİK - NAVİGASYON (MENÜ) VE HERO UYUMU
+   ========================================================================== */
+
+/* Menünün genel yerleşimi ve şeffaf arka planı */
+.navbar, nav, header:not(.hero-section) {
+    position: fixed; /* Sayfa kaysa da menü en üstte sabit kalır */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Arkadaki görsele göre yazılar net okunsun diye hafif şeffaf beyaz */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Altına tatlı, hafif bir gölge */
+    z-index: 999; /* Menünün her zaman en üstte görünmesi için */
+    transition: all 0.3s ease; /* Geçişlerin yumuşak olması için */
+}
+
+/* Menüdeki Linklerin (Yazıların) Ayarları */
+.navbar a, nav a {
+    color: #0b457f !important; /* Logonuzun kurumsal koyu mavisi */
+    font-weight: 600;
+    text-transform: uppercase; /* Harfleri büyük yapar */
+    font-size: 0.95rem;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+/* Mouse ile menü linklerinin üzerine gelindiğinde (Hover) */
+.navbar a:hover, nav a:hover {
+    color: #17a2b8 !important; /* Canlı temizlik/su tonu mavisi */
+}
+
+/* Menü yukarıda sabitlendiği için Hero alanının menünün altında kalmasını engelleme */
+.hero-section {
+    padding-top: 80px; /* Menünün yüksekliği kadar üstten boşluk bırakarak yazıları aşağı iter */
+}
