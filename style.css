@@ -962,3 +962,28 @@ body {
         font-size: 0.85rem; /* Mobilde ekrana sığması için hafif küçülttük */
     }
 }
+/* ==========================================================================
+   CLARO TEMİZLİK - INSTAGRAM İKONU GÖRSEL AYARLARI
+   ========================================================================== */
+
+.nav-instagram-icon {
+    color: #0b457f !important; /* İlk başta kurumsal koyu mavimiz */
+    font-size: 1.4rem; /* Gözü yormayan ama belirgin bir büyüklük */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Mouse ile Instagram ikonunun üzerine gelindiğinde (Hover) */
+.nav-instagram-icon:hover {
+    color: #e1306c !important; /* Orijinal şık Instagram pembesi rengine yumuşak geçiş */
+    transform: scale(1.1); /* Hafifçe büyüme efekti */
+}
+
+/* Mobil ekranlarda ikonun butonla dip dibe girmemesi için */
+@media (max-width: 768px) {
+    .nav-instagram-icon {
+        font-size: 1.2rem;
+    }
+}
