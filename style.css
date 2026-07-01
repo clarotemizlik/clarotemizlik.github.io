@@ -822,3 +822,86 @@ body {
         font-size: 0.95rem !important;
     }
 }
+/* ==========================================================================
+   CLARO TEMİZLİK - LOGO DAİRELEŞTİRME VE %100 OKUNABİLİRLİK REZOLÜSYONU
+   ========================================================================== */
+
+/* Arka planı ve yazıların arkasındaki sihirli koyu perdeyi ayarlayan alan */
+.hero-section {
+    /* Sol tarafa kurumsal koyu mavimizden (#0b457f) şeffafa doğru giden yumuşak bir perde çektik. 
+       Bu perde sol taraftaki beyaz ışığı kıracak ve beyaz yazıların zınk diye okunmasını sağlayacak. */
+    background: linear-gradient(to right, rgba(11, 69, 127, 0.85) 0%, rgba(11, 69, 127, 0.4) 50%, rgba(255, 255, 255, 0) 100%), 
+                url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* 🟢 LOGONUN DAİRE YAPILMASI */
+.hero-logo {
+    width: 110px !important; /* Daire formunda taşmaması için dengeli bir genişlik */
+    height: 110px !important; /* Kusursuz bir daire için genişlik ve yükseklik eşit olmalı */
+    object-fit: cover; /* Logonun daire içinde ezilip büzülmesini engeller */
+    border-radius: 50% !important; /* Kareyi tam bir daireye dönüştüren sihirli kod */
+    background-color: #ffffff; /* Logonun arkasına temiz beyaz bir zemin serdik */
+    padding: 8px; /* Logonun dairenin kenarlarına yapışmasını engeller, nefes aldırır */
+    border: 3px solid rgba(255, 255, 255, 0.8); /* Dairenin etrafına şık bir kurumsal çerçeve */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Daireyi havada gösterecek tatlı bir gölge */
+    margin-bottom: 30px;
+    display: block;
+}
+
+/* ⚪ YAZILARIN YENİ RENK VE KONTRAST AYARLARI (Koyu Mavi Perde Üzerine Beyaz Tipografi) */
+.hero-text h2 {
+    font-size: 2.8rem;
+    color: #ffffff !important; /* Yazıyı bembeyaz yaptık, arkadaki koyu mavi perdeyle muazzam okunacak */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.hero-text h3 {
+    font-size: 1.6rem;
+    color: #17a2b8 !important; /* Slogan renginiz (Canlı turkuaz/temizlik tonu) koyu mavinin üstünde parlayacak */
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #f1f5f9 !important; /* Tam beyaz yerine gözü yormayan çok hafif grimsi tatlı bir beyaz */
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+/* 📱 MOBİL UYUMLULUKTA RENKLERİN KORUNMASI */
+@media (max-width: 768px) {
+    .hero-section {
+        /* Mobilde personeli korumak için perde açısını dikey yapıyoruz */
+        background: linear-gradient(to bottom, rgba(11, 69, 127, 0.9) 0%, rgba(11, 69, 127, 0.7) 100%), 
+                    url('hero-bg.jpg');
+        background-position: 45% center !important; 
+    }
+
+    .hero-text {
+        background: transparent !important; /* Arkaya artık beyaz kutu koymaya gerek yok, çünkü tüm zemin koyu mavi oldu */
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+        text-align: center; /* Mobilde yazıları ortalamak estetiği artırır */
+    }
+
+    .hero-logo {
+        margin: 0 auto 20px auto !important; /* Mobilde daire logoyu tam ortala */
+        width: 95px !important;
+        height: 95px !important;
+    }
+
+    .hero-text h2 { font-size: 1.9rem !important; }
+    .hero-text h3 { font-size: 1.3rem !important; }
+    .hero-text p { font-size: 0.95rem !important; color: #e2e8f0 !important; }
+}
