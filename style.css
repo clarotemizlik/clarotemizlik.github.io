@@ -298,26 +298,57 @@ body {
     margin-bottom: 60px;
 }
 
+/* ==========================================================================
+   🎯 HİZMET KUTULARI (SERVICE-BOX) PREMIUM DOKUNUŞLARI
+   ========================================================================== */
+
+/* Hizmet Kutularının Varsayılan (Statik) Hali */
 .service-box {
-    background-color: var(--white);
-    padding: 25px;
-    border-radius: var(--radius);
+    background: #ffffff;
+    border-radius: 16px; /* Keskin köşeleri yumuşatarak modern bir hava katıyoruz */
+    padding: 35px 25px;
     text-align: center;
-    font-weight: 600;
-    color: var(--dark-blue);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    font-size: 1.1rem;
+    border: 1px solid rgba(11, 69, 127, 0.05); /* Gözü yormayan kurumsal bir çerçeve line'ı */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); /* Başlangıçta zemine basan çok hafif bir gölge */
+    
+    /* Kübik bezier zamanlaması ile hareketin yay gibi pürüzsüz akmasını sağlıyoruz */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
 }
 
+/* 🚀 Kullanıcı Fareyle Üzerine Geldiğinde (Hover Durumu) */
+.service-box:hover {
+    transform: translateY(-10px); /* Kutu yukarı doğru pürüzsüzce 10 piksel yükselir */
+    border-color: rgba(11, 69, 127, 0.2); /* Çerçeve kurumsal lacivertinize doğru hafifçe belirginleşir */
+    
+    /* Kutunun altına derinlik veren, havaya kalkmış hissi yaratan gölge */
+    box-shadow: 0 22px 40px rgba(11, 69, 127, 0.12); 
+}
+
+/* Kutunun İçindeki İkon Alanını Çember İçine Alma (Grafik Öge Yapma) */
 .service-box i {
-    font-size: 2rem;
-    color: var(--sky-blue);
+    width: 65px;
+    height: 65px;
+    background-color: rgba(11, 69, 127, 0.06); /* Kurumsal renginizin şeffaf, yumuşak bir tonu */
+    color: #0b457f; /* İkonun kendi ana kurumsal rengi */
+    border-radius: 50%; /* Kusursuz bir daire/çember yapısı */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Alttaki başlıkla (h3/h4) arasına nefes aldıracak mesafe */
+    font-size: 26px; /* İkonun kutu içindeki ideal büyüklüğü */
+    
+    /* İkon içi renk geçişlerinin akıcılığı */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s ease;
 }
 
+/* Kutuya hover yapıldığında ikonun da dinamik tepki vermesi */
+.service-box:hover i {
+    background-color: #0b457f; /* Arka plan çemberi tamamen kurumsal lacivert olur */
+    color: #ffffff; /* İkonun kendisi beyazlaşır */
+    transform: rotateY(180deg); /* Kendi ekseninde şık bir 3D dönüş yapar */
+}
 /* 5. SIKÇA SORULAN SORULAR */
 .faq-section {
     padding: 100px 0;
