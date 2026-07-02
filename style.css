@@ -1135,3 +1135,18 @@ body {
         font-size: 2rem;
     }
 }
+/* Alt sayfalardaki buton renklerini ana sayfa ile eşitleme */
+.service-detail-section .btn-main,
+.sidebar-box .btn-main {
+    background-color: #17a2b8 !important; /* Buraya ana sayfanızdaki parlak mavi/turkuaz kodu yazdım */
+    color: #ffffff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+/* Fareyle üzerine gelindiğinde (Hover) hafif koyulaşma efekti */
+.service-detail-section .btn-main:hover,
+.sidebar-box .btn-main:hover {
+    background-color: #138496 !important; /* Üzerine gelince bir ton koyusu */
+}
