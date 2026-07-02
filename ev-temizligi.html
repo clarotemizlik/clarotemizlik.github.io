@@ -10,27 +10,28 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container navbar-wrapper">
-            <div class="logo-area">
-                <img src="CLARO LOGO.PNG" alt="Claro Temizlik Logo" class="site-logo">
-                <span class="motto-text">Mis Gibi Ev,<br>İç Rahatlığı</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html#anasayfa">Ana Sayfa</a></li>
-                <li><a href="index.html#hizmetlerimiz">Hizmetlerimiz</a></li>
-                <li><a href="index.html#hakkimizda">Hakkımızda</a></li>
-                <li><a href="index.html#sss">S.S.S.</a></li>
-                <li><a href="index.html#iletisim">Bize Ulaşın</a></li>
-            </ul>
-            <a href="fiyat-hesapla.html" class="btn-calc">ÜCRETSİZ FİYAT HESAPLA</a>
+    <nav class="claro-navbar">
+        <div class="nav-links">
+            <a href="index.html#anasayfa">Ana Sayfa</a>
+            <a href="index.html#hakkimizda">Hakkımızda</a>
+            <a href="index.html#hizmetler">Hizmetler</a>
+            <a href="index.html#iletisim">İletişim</a>
+        </div>
+        
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 20px;">
+            
+            <a href="https://instagram.com/clarotemizlik" target="_blank" class="nav-instagram-icon" title="Claro Temizlik Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            
+            <a href="fiyat-hesapla.html" class="nav-btn-main">Ücretsiz Fiyat Hesapla</a>
+            
         </div>
     </nav>
 
     <section class="service-detail-section">
         <div class="container service-detail-wrapper">
             
-            <!-- Sol Sütun: Hizmet Detayları ve Yeni Eklenen Görsel -->
             <div class="detail-content">
                 <h2>Profesyonel Ev Temizliği</h2>
                 <p>Claro Temizlik olarak, evinizde geçirdiğiniz zamanın kalitesini artırmak için titiz, güvenilir ve detaylı ev temizliği çözümleri sunuyoruz.</p>
@@ -39,21 +40,18 @@
                 <ul class="scope-list">
                     <li><i class="fa-solid fa-circle-check"></i> Tüm odaların tozunun alınması ve zeminlerin silinmesi/süpürülmesi</li>
                     <li><i class="fa-solid fa-circle-check"></i> Mutfak tezgahı, ocak ve dış yüzeylerin yağdan arındırılması</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Banyo, tuvalet ve lavaboların dezenfeksiyonu</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Kapıların, prizlerin ve süpürgeliklerin silinmesi</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Banyo, tuvalet og lavaboların dezenfeksiyonu</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Kapıların, prizlerin og süpürgeliklerin silinmesi</li>
                     <li><i class="fa-solid fa-circle-check"></i> Camların iç ve dış yüzey temizliği</li>
                 </ul>
 
-                <!-- 🎯 YENİ EKLENEN SONUÇ ODAKLI FERAH EV GÖRSELİ -->
                 <div class="service-main-image" style="margin: 30px 0; width: 100%;">
-                    <!-- Use site-root absolute path for GitHub Pages user site -->
-                    <img src="/temiz-ev.webp" alt="Claro Temizlik - Pırıl pırıl temizlenmiş ferah ve aydınlık ev salonu" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);" loading="lazy">
+                    <img src="temiz-ev.webp" alt="Claro Temizlik - Pırıl pırıl temizlenmiş ferah ve aydınlık ev salonu" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);" loading="lazy">
                 </div>
 
-                <a href="index.html#hizmetlerimiz" class="btn-main" style="background-color: var(--dark-blue); text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Diğer Hizmetlere Göz At</a>
+                <a href="index.html#hizmetler" class="btn-main" style="background-color: var(--dark-blue); text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Diğer Hizmetlere Göz At</a>
             </div>
 
-            <!-- Sağ Sütun: Fiyat Al Kutusu -->
             <div class="sidebar-box">
                 <h4>Eviniz İçin Fiyat Alın</h4>
                 <p style="font-size: 0.95rem; margin-bottom: 20px;">Evinizin büyüklüğüne göre anında fiyat çıkarın.</p>
