@@ -1038,7 +1038,8 @@ body {
    ========================================================================== */
 
 .service-detail-section {
-    padding: 80px 0;
+    /* İlk değer yukarıdaki boşluğu 140px'e çıkararak menüden uzaklaştırır, son değer aşağıdaki boşluğu ayarlar */
+    padding: 140px 0 80px 0; 
     background-color: #ffffff;
 }
 
