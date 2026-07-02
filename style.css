@@ -7,16 +7,15 @@
     scroll-behavior: smooth;
 }
 
+/* ==========================================================================
+   🎨 CLARO TEMİZLİK KURUMSAL RENK PALETİ (CSS DEĞİŞKENLERİ)
+   ========================================================================== */
 :root {
-    --dark-blue: #0A2540;     /* Logonuzdaki ve başlıklardaki koyu mavi */
-    --sky-blue: #00D2FF;      /* Parlak gökyüzü mavisi */
-    --light-blue: #EAF9FF;    /* Arka planlar için çok açık mavi */
-    --text-color: #4A5568;    /* Okunaklı koyu gri yazı rengi */
-    --gray-bg: #F7FAFC;       /* Form ve kutu arka planları */
-    --white: #FFFFFF;
-    --radius: 12px;           /* Canva'daki gibi yumuşak oval köşeler */
+    --primary-blue: #0b457f;  /* Ana Kurumsal Renk: Güven veren Koyu Safir Mavi */
+    --action-turquoise: #17a2b8; /* Aksiyon Rengi: Temizlik ve Ferahlık hissi veren Canlı Turkuaz */
+    --text-dark: #334155;     /* Okunabilirlik Rengi: Paragraflar için yumuşak antrasit */
+    --bg-light: #f8fafc;      /* Zemin Dengesi: Bölüm geçişleri için kirli beyaz / açık gri */
 }
-
 body {
     color: var(--text-color);
     background-color: var(--white);
