@@ -10,6 +10,7 @@
 </head>
 <body>
 
+    <!-- ÜST MENÜ (NAVBAR) -->
     <nav class="claro-navbar">
         <div class="nav-links">
             <a href="#anasayfa">Ana Sayfa</a>
@@ -19,25 +20,22 @@
         </div>
         
         <div class="nav-actions" style="display: flex; align-items: center; gap: 20px;">
-            
             <a href="https://instagram.com/clarotemizlik" target="_blank" class="nav-instagram-icon" title="Claro Temizlik Instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            
             <a href="fiyat-hesapla.html" class="nav-btn-main">Ücretsiz Fiyat Hesapla</a>
-            
         </div>
     </nav>
 
+    <!-- GİRİŞ BÖLÜMÜ (HERO) -->
     <header id="anasayfa" class="hero-section">
         <div class="container hero-wrapper">
             
             <div class="hero-text">
                 <img src="CLARO LOGO.PNG" alt="Claro Temizlik Logo" class="hero-logo">
-                
                 <h2>Profesyonel Temizlikte<br>Güvenilir Çözüm Ortağınız</h2>
                 <h3>Mis gibi ev, iç rahatlığı</h3>
-                <p>Claro Temizlik; ev, ofis ve apartman temizliği hizmetlerinde profesyonel ekibiyle hijyenik, güvenilir ve kaliteli çözümler sunar.</p>
+                <p>Claro Temizlik; ev, ofis and apartman temizliği hizmetlerinde profesyonel ekibiyle hijyenik, güvenilir ve kaliteli çözümler sunar.</p>
                 
                 <div class="hero-btns">
                     <a href="fiyat-hesapla.html" class="btn-main">Fiyat Hesapla</a>
@@ -47,13 +45,15 @@
                 </div>
             </div>
             
+            <!-- 🎯 DÜZELTİLEN YENİ GÖRSEL ALANI -->
             <div class="hero-image" style="display: flex; align-items: center; justify-content: center;">
-                <img src="hero-clean.webp" alt="Claro Temizlik - Profesyonel ev ve ofis temizliği hizmeti, hijyenik ve pırıl pırıl yaşam alanı" style="width: 100%; height: auto; max-height: 450px; object-fit: cover; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.08);">
+                <img src="hero.png" alt="Claro Temizlik - Profesyonel ev ve ofis temizliği hizmeti, hijyenik ve pırıl pırıl yaşam alanı" style="width: 100%; height: auto; max-height: 450px; object-fit: cover; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.08);">
             </div>
             
         </div>
     </header>
 
+    <!-- HAKKIMIZDA BÖLÜMÜ -->
     <section id="hakkimizda" class="about-section" style="padding: 80px 0; background-color: #ffffff; text-align: center;">
         <div class="container" style="max-width: 800px; margin: 0 auto;">
             <h2 style="color: #0b457f; font-weight: 700; font-size: 2.2rem; margin-bottom: 25px; position: relative; display: inline-block;">Biz Kimiz?</h2>
@@ -67,6 +67,7 @@
         </div>
     </section>
 
+    <!-- HİZMETLERİMİZ BÖLÜMÜ -->
     <section id="hizmetler" class="services-section">
         <div class="container">
             <h2 class="section-title">Hizmetlerimiz</h2>
@@ -91,6 +92,7 @@
         </div>
     </section>
 
+    <!-- GÜVEN ROZETİ -->
     <div class="claro-trust-badge" style="max-width: 800px; margin: 0 auto 40px auto; background: #f8fafc; border-left: 5px solid #17a2b8; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 20px;">
         <div class="badge-icon" style="font-size: 2.5rem; color: #17a2b8;">
             <i class="fa-solid fa-shield-halved"></i>
@@ -101,6 +103,7 @@
         </div>
     </div>
 
+    <!-- SIK SORULAN SORULAR -->
     <div class="faq-container" style="max-width: 800px; margin: 0 auto; padding-bottom: 60px;">
         <div class="faq-header" style="text-align: center; margin-bottom: 30px;">
             <h2 style="color: #0b457f; font-weight: 700;">Sık Sorulan Sorular</h2>
@@ -120,12 +123,14 @@
                     <p><strong>Hayır, standart temizlik fiyatlarımıza malzeme ve ekipman dahil değildir.</strong> Kendi deterjanlarını kullanmak isteyen müşterilerimize ek maliyet yansıtmıyoruz. İstenilirse malzeme ve ekipman ek ücret karşılığında temin edilebiliriz.</p>
                 </div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-toggle">Hafta sonları temizlik yapıyor musunuz? <i class="fa-solid fa-chevron-down"></i></button>
                 <div class="faq-content">
                     <p>Evet, hafta sonu için sınırlı sayıda yer mevcuttur. Hafta sonları temizlik hizmetleri hafta içi hizmetlerden %15 daha pahalı olabilir. Ayrıntılı bilgi için bize ulaşabilirsiniz.</p>
                 </div>
             </div>
+
             <div class="faq-item">
                 <button class="faq-toggle">Bir işin fiyatını nasıl belirliyorsunuz? <i class="fa-solid fa-chevron-down"></i></button>
                 <div class="faq-content">
@@ -135,6 +140,7 @@
         </div>
     </div>
 
+    <!-- İLETİŞİM & FOOTER -->
     <footer id="iletisim" class="main-footer">
         <div class="container footer-wrapper">
             <div class="footer-info">
@@ -176,6 +182,7 @@
         </div>
     </footer>
 
+    <!-- SCRIPT -->
     <script>
         const faqToggles = document.querySelectorAll('.faq-toggle');
         faqToggles.forEach(toggle => {
