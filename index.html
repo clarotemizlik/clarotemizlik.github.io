@@ -187,7 +187,8 @@
     </footer>
 
     <!-- SCRIPT -->
-    <script>
+  <script>
+        // S.S.S (FAQ) Akordeon Açma/Kapama Kodları
         const faqToggles = document.querySelectorAll('.faq-toggle');
         faqToggles.forEach(toggle => {
             toggle.addEventListener('click', () => {
@@ -195,6 +196,29 @@
                 item.classList.toggle('active');
             });
         });
+
+        // 📱 Mobil Hamburger Menü Açma/Kapama Kodları
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // İkonu değiştir: Menü açıkken çarpı (X), kapalıyken üç çizgi yap
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        // Menüdeki bir linke tıklandığında menüyü otomatik kapat (Kullanıcı deneyimi için)
+        const menuLinks = navMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
     </script>
-</body>
-</html>
